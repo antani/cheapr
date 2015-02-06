@@ -1,0 +1,19 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="body-content">
+  <table class="table">
+    {% for r in results %}
+      <tr>
+        <td>{{r.price}}</td>
+        <td>{{r.name}}</td>
+        <td>{{r.source}}</td>
+        <td>{{r.weight}}</td>
+        <td><img src="{{r.img|resize('100x80', placeholder=True, fill=1, quality=50,anchor='center')}}"/>{{r.img}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
+
