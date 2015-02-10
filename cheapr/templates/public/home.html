@@ -8,9 +8,12 @@
       <tr>
         <td>{{r.price}}</td>
         <td>{{r.name}}</td>
-        <td>{{r.source}}</td>
+        <td><img src={{resized_img_src(r.source, width=80, height=50, mode='fit', quality=45)}} /></td>
         <td>{{r.weight}}</td>
-        <td><img src="{{r.img|resize('100x80', placeholder=True, fill=1, quality=50,anchor='center')}}"/>{{r.img}}</td>
+        {% if r.img: %}
+          <td><img src={{resized_img_src(r.img, width=80, height=100, mode='fit', quality=45, enlarge=True)}} /></td>
+        {% endif %}
+
       </tr>
     {% endfor %}
   </table>

@@ -22,7 +22,14 @@
       <li><a href="{{ url_for('public.home') }}">Home</a></li>
       <li><a href="{{ url_for('public.about') }}">About</a></li>
     </ul>
-
+    <form id="searchForm" class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{form.searchterm.label}}
+                {{form.searchterm(placeholder="searchterm", class_="form-control")}}
+            </div>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Register"></p>
+    </form>
 
   </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

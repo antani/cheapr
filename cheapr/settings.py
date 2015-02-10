@@ -21,20 +21,20 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://cheapr:cheapr@localhost@5432/cheapr'  # TODO: Change me
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     # Where your media resides
-    RESIZE_ROOT = '/home/vantani/cheapr/cheapr/static/cache/media/'
+    #RESIZE_ROOT = '/home/vantani/cheapr/cheapr/static/cache/media/'
 
     # The URL where your media is served at. For the best performance you
     # should serve your media with a proper web server, under a subdomain
     # and with cookies turned off.
-    RESIZE_URL = '/static/cache/media/'
+    #RESIZE_URL = '/static/cache/media/'
 
     # Set to False if you want Flask-Resize to create sub-directories for
     # each resize setting instead of using a hash.
-    RESIZE_HASH_FILENAME = True
+    #RESIZE_HASH_FILENAME = True
 
     # Change if you want to use something other than md5 for your hashes.
     # Supports all methods that hashlib supports.
-    RESIZE_HASH_METHOD = 'md5'
+    #RESIZE_HASH_METHOD = 'md5'
 
 
 class DevConfig(Config):
@@ -50,10 +50,10 @@ class DevConfig(Config):
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
     CACHE_TYPE = 'memcached'  # Can be "memcached", "redis", etc.
     # Where your media resides
-    RESIZE_ROOT = '/home/vantani/cheapr/cheapr/static/cache/media/'
-    RESIZE_URL = '/static/cache/media/'
-    RESIZE_HASH_FILENAME = True
-    RESIZE_HASH_METHOD = 'md5'
+    #RESIZE_ROOT = '/home/vantani/cheapr/cheapr/static/cache/media/'
+    #RESIZE_URL = '/static/cache/media/'
+    #RESIZE_HASH_FILENAME = True
+    #RESIZE_HASH_METHOD = 'md5'
 
 
 

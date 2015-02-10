@@ -13,7 +13,7 @@ from cheapr.extensions import (
     debug_toolbar,
 )
 from cheapr import public, user
-from flask.ext.resize import Resize
+from flask.ext.images import Images
 
 
 def create_app(config_object=ProdConfig):
@@ -27,7 +27,11 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
-    resize = Resize(app)
+    app.secret_key = 'Google'
+    app.images_cache='static/cache/images'
+    images = Images(app)
+
+    #resize = Resize(app)
     return app
 
 

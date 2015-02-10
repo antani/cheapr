@@ -30,3 +30,9 @@ class LoginForm(Form):
             self.username.errors.append('User not activated')
             return False
         return True
+
+class SearchForm(Form):
+    searchterm = TextField('Search', validators=[DataRequired()])
+
+    def __init__(self, *args, **kwargs):
+        super(SearchForm, self).__init__(*args, **kwargs)

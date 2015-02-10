@@ -6,7 +6,7 @@ from flask.ext.login import login_user, login_required, logout_user
 
 from cheapr.extensions import login_manager
 from cheapr.user.models import User
-from cheapr.public.forms import LoginForm
+from cheapr.public.forms import SearchForm
 from cheapr.user.forms import RegisterForm
 from cheapr.utils import flash_errors
 from cheapr.database import db
@@ -21,19 +21,22 @@ def load_user(id):
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
-    # form = LoginForm(request.form)
-    # # Handle logging in
-    # if request.method == 'POST':
-    #     if form.validate_on_submit():
-    #         login_user(form.user)
-    #         flash("You are logged in.", 'success')
-    #         redirect_url = request.args.get("next") or url_for("user.members")
-    #         return redirect(redirect_url)
-    #     else:
-    #         flash_errors(form)
-    r = requests.get('http://localhost:5001/api/1.0/books/algorithms')
-    results = r.json()['results']
-    return render_template("public/home.html", form=None, results=results)
+    form = SearchForm(request.form)
+    # Handle logging in
+    if request.method == 'POST':
+        if not form.validate_on_submit():
+            flash_errors(form)
+            # login_user(form.user)
+            # flash("You are logged in.", 'success')
+            # redirect_url = request.args.get("next") or url_for("user.members")
+            # return redirect(redirect_url)
+            return redirect(url_for('public.home'))
+        else:
+            print form.searchterm.data
+            r = requests.get('http://localhost:5001/api/1.0/books/{0}'.format(form.searchterm.data))
+            results = r.json()['results']
+            return render_template("public/home.html", form=form, results=results)
+    return render_template("public/home.html", form=form, results=[])
 
 @blueprint.route('/logout/')
 @login_required
