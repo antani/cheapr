@@ -22,9 +22,12 @@ def load_user(id):
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
     form = SearchForm(request.form)
+    print form.searchterm.data
+    print form.searchtype.data
     # Handle logging in
     if request.method == 'POST':
         if not form.validate_on_submit():
+            print "not validated"
             flash_errors(form)
             # login_user(form.user)
             # flash("You are logged in.", 'success')
@@ -32,8 +35,8 @@ def home():
             # return redirect(redirect_url)
             return redirect(url_for('public.home'))
         else:
-            print form.searchterm.data
-            r = requests.get('http://localhost:5001/api/1.0/books/{0}'.format(form.searchterm.data))
+            print "validated"
+            r = requests.get('http://localhost:5001/api/1.0/{0}/{1}'.format(form.searchtype.data,form.searchterm.data))
             results = r.json()['results']
             return render_template("public/home.html", form=form, results=results)
     return render_template("public/home.html", form=form, results=[])

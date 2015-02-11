@@ -26,8 +26,13 @@
             {{ form.hidden_tag() }}
             <div class="form-group">
                 {{form.searchterm.label}}
-                {{form.searchterm(placeholder="searchterm", class_="form-control")}}
+                {{form.searchterm(class_="form-control")}}
+                <select name="searchtype">
+                    <option value="books">Books</option>
+                    <option value="mobiles">Mobiles</option>
+                </select>
             </div>
+
             <p><input class="btn btn-default btn-submit" type="submit" value="Register"></p>
     </form>
 

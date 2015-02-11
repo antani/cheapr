@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, PasswordField
+from wtforms import TextField, SelectField, PasswordField
 from wtforms.validators import DataRequired
 
 from cheapr.user.models import User
@@ -33,6 +33,7 @@ class LoginForm(Form):
 
 class SearchForm(Form):
     searchterm = TextField('Search', validators=[DataRequired()])
+    searchtype = SelectField('Type',choices=[('books', 'Books'), ('mobiles', 'Mobiles')])
 
     def __init__(self, *args, **kwargs):
         super(SearchForm, self).__init__(*args, **kwargs)

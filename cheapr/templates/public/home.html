@@ -6,11 +6,23 @@
   <table class="table">
     {% for r in results %}
       <tr>
-        <td>{{r.price}}</td>
-        <td>{{r.name}}</td>
-        <td><img src={{resized_img_src(r.source, width=80, height=50, mode='fit', quality=45)}} /></td>
-        <td>{{r.weight}}</td>
-        {% if r.img: %}
+        <td class="price"><span class="currencyINR">&#8377;</span>{{r.price}}</td>
+        <td></td>
+        <td class="buy_td"><a href="{{r.url}}" class="buy_btn btn btn-primary btn-lg btn-warning" role="button" target="_blank">Buy</a> <span class="author_td">from</span>
+          <img src={{resized_img_src(r.source, width=80, height=50, mode='fit', quality=45)}} />
+        </td>
+        <td></td>
+        <td></td>
+        <td class="name_td">{{r.name}} <br>
+          <span class="author_td">{{r.author if r.author}}</span><br>
+          {%if r.discount%}
+            <span class="discount_td">{{r.discount}}</span><br>
+          {%endif%}
+          {%if r.usp%}
+            <span class="author_td">{{r.usp}}</span><br>
+          {%endif%}
+        </td>
+        {% if r.img %}
           <td><img src={{resized_img_src(r.img, width=80, height=100, mode='fit', quality=45, enlarge=True)}} /></td>
         {% endif %}
 
