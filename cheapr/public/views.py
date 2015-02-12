@@ -11,8 +11,39 @@ from cheapr.user.forms import RegisterForm
 from cheapr.utils import flash_errors
 from cheapr.database import db
 import requests
+import logging
+import datetime
+from flask import request
 
+LOG_FILENAME = 'cheapr_access_log.log'
+info_log = logging.getLogger('app_info_log')
+info_log.setLevel(logging.INFO)
+
+handler = logging.handlers.RotatingFileHandler(
+    LOG_FILENAME,
+    maxBytes=1024 * 1024 * 100,
+    backupCount=20
+    )
+
+info_log.addHandler(handler)
 blueprint = Blueprint('public', __name__, static_folder="../static")
+
+@blueprint.before_request
+def pre_request_logging():
+    #Logging statement
+    if 'text/html' in request.headers['Accept']:
+        info_log.info('\t'.join([
+            datetime.datetime.today().ctime(),
+            request.remote_addr,
+            request.method,
+            request.url,
+            request.data,
+            ', '.join([': '.join(x) for x in request.args]),
+            ', '.join([': '.join(x) for x in request.headers])])
+        )
+
+
+
 
 @login_manager.user_loader
 def load_user(id):

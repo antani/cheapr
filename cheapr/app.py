@@ -29,6 +29,8 @@ def create_app(config_object=ProdConfig):
     register_errorhandlers(app)
     app.secret_key = 'Google'
     app.images_cache='static/cache/images'
+    #https://medium.com/@5hreyans/the-one-weird-trick-that-cut-our-flask-page-load-time-by-70-87145335f679
+    app.jinja_env.cache = {}
     images = Images(app)
 
     #resize = Resize(app)

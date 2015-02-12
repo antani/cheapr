@@ -33,7 +33,9 @@ class LoginForm(Form):
 
 class SearchForm(Form):
     searchterm = TextField('Search', validators=[DataRequired()])
-    searchtype = SelectField('Type',choices=[('books', 'Books'), ('mobiles', 'Mobiles')])
+    searchtype = SelectField('Type',choices=[('books', 'Books'), ('mobiles', 'Mobiles'),('electronics','Electronics'),('kitchen','Kitchen Appliances'),('tv','LED-LCD TVs'),
+                            ('laptop','Laptops'),('computers','Computers')])
+
 
     def __init__(self, *args, **kwargs):
         super(SearchForm, self).__init__(*args, **kwargs)
