@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block content %}
+  <!-- breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="row">
+        <ul>
+          <li class="home"> <a href="index.html" title="Go to Home Page">Home</a><span>&mdash;›</span></li>
+          <li class=""> <a href="grid.html" title="Go to Home Page">Women</a><span>&mdash;›</span></li>
+          <li class="category13"><strong>Tops &amp; Tees</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- end breadcrumbs -->
+
+<section class="main-container col2-left-layout">
+    <div class="main container">
+      <div class="row">
+        <section class="col-main col-sm-9 col-sm-push-3 wow bounceInUp animated">
+          <div class="category-title">
+            <h1>Books</h1>
+          </div>
+          <div class="category-description std">
+            <div class="category-image"><img src="images/category-banner.jpg" alt="cat imges " title="Sofas "> </div>
+          </div>
+          <div class="category-products">
+            <div class="toolbar">
+              <div class="sorter">
+                <div class="view-mode"> <a href="grid.html" title="Grid" class="button button-grid">Grid</a>&nbsp; <span title="List" class="button button-active button-list">List</span>&nbsp; </div>
+              </div>
+              <div id="sort-by">
+                <label class="left">Sort By: </label>
+                <ul>
+                  <li><a href="#">Position<span class="right-arrow"></span></a>
+                    <ul>
+                      <li><a href="#">Name</a></li>
+                      <li><a href="#">Price</a></li>
+                      <li><a href="#">Position</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <a class="button-asc left" href="#?dir=desc&amp;order=position" title="Set Descending Direction"><span style="color:#999;font-size:11px;" class="glyphicon glyphicon-arrow-up"></span></a> </div>
+              <div class="pager">
+                <div id="limiter">
+                  <label>View: </label>
+                  <ul>
+                    <li><a href="#">15<span class="right-arrow"></span></a>
+                      <ul>
+                        <li><a href="#">20</a></li>
+                        <li><a href="#">30</a></li>
+                        <li><a href="#">35</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="pages">
+                  <label>Page:</label>
+                  <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <ol id="products-list" class="products-list">
+            {% for r in results %}
+              <li class="item odd">
+                <div class="product-image"> <a href="/{{r.type}}/info/{{r.uuid}}" title="{{r.name}} "> <img class="small-image" src="{{resized_img_src(r.img, width=180, height=200, mode='fit', quality=45, enlarge=True)}}" alt="{{r.name}}"> </a> </div>
+                <div class="product-shop">
+                  <h2 class="product-name"><a title=" {{r.name}}" href="/{{r.type}}/info/{{r.uuid}}"> {{r.name}} </a></h2>
+                  <div class="price-box">
+                    <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> <span class="currencyINR">&#8377;</span>{{r.price}} </span> </p>
+                  </div>
+                  <div class="desc std">
+                    <p>{{r.discount}}</p>
+                    <p>{{r.author}}</p>
+                    <p>{{r.usp}}... <a class="link-learn" title="" href="/{{r.type}}/info/{{r.uuid}}">Learn More</a> </p>
+                  </div>
+                    <div class="">
+                    <button class="button btn-cart" type="button" title="Buy">
+                        <a href="{{r.url}}">
+                        <span>
+                        <i class="icon-basket"></i>
+                        Add to Cart
+                        </span></a>
+                    </button>
+                    </div>
+
+                    <span class="author_td"> from </span><img src={{resized_img_src(r.source, width=80, height=50, mode='fit', quality=45)}} />
+
+
+              </li>
+             {%endfor%}
+            </ol>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <!-- End Two columns content -->
+{% endblock %}
+
+

@@ -1,5 +1,6 @@
 
 <!doctype html>
+<html lang="en">
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -16,49 +17,141 @@
   </title>
   <meta name="description" content="{% block meta_description %}{% endblock %}">
   <meta name="author" content="{% block meta_author %}{% endblock %}">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
-  <meta name="viewport" content="width=device-width">
+ <!-- Favicons Icon -->
+<link rel="icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://demo.magikthemes.com/skin/frontend/base/default/favicon.ico" type="image/x-icon" />
+
+<!-- Mobile Specific -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
 
   <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome4/css/font-awesome.min.css') }}">
   {% assets "css_all" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}">
   {% endassets %}
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,700,800,400,600' rel='stylesheet' type='text/css'>
 
   {% block css %}{% endblock %}
 
 </head>
-<body class="{% block body_class %}{% endblock %}">
-{% block body %}
-{% with form=form  %}
-{% include "nav.html" %}
-{% endwith %}
+<body>
+<div class="page">
+    {% block body %}
+    {% with form=form  %}
+      <!-- Header -->
+  <header class="header-container">
 
-<header>{% block header %}{% endblock %}</header>
-<div class="{% block content_class %}container{% endblock content_class %}">
+    <div class="header container">
 
-  <div role="main">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-    <div class="row">
-      <div class="col-md-12">
-        {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">
-          <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
-         {{message}}
-        </div><!-- end .alert -->
-        {% endfor %}
-      </div><!-- end col-md -->
-    </div><!-- end row -->
-        {% endif %}
+      <div class="row">
+        <div class="col-lg-2 col-sm-3 col-md-2">
+          <!-- Header Logo -->
+          <a class="logo" title="Cheapr" href="index.html"><img alt="Cheapr" src="images/logo.png"></a>
+          <!-- End Header Logo -->
+        </div>
+        <div class="col-lg-8 col-sm-6 col-md-8">
+          <!-- Search-col -->
+          <div class="search-box">
+            <form id="searchForm" class="form form-register" method="POST" action="" role="form">
+                {{form.hidden_tag() }}
+                {{form.searchterm(class_="form-control")}}
+                <select name="searchtype" class="cate-dropdown hidden-xs">
+                    <option value="books">Books</option>
+                    <option value="mobiles">Mobiles</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="laptop">Laptops</option>
+                    <option value="computers">Computers and Accessories</option>
+                    <option value="kitchen">Kitchen Appliances</option>
+                    <option value="tv">LED-LCD TVs</option>
+                </select>
+            <button id="submit-button" class="search-btn-bg"><span>Search</span></button>
+            </form>
+          </div>
+          <!-- End Search-col -->
+        </div>
+        <!-- Top Cart -->
+        <div class="col-lg-2 col-sm-3 col-md-2">
+          <div class="top-cart-contain">
+            <div class="mini-cart">
+              <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="#"> <i class="glyphicon glyphicon-shopping-cart"></i>
+                <div class="cart-box"><span class="title">cart</span><span id="cart-total">2 item </span></div>
+                </a></div>
+              <div>
+                <div style="display: none;" class="top-cart-content arrow_box">
+                  <div class="block-subtitle">Recently added item(s)</div>
+                  <ul id="cart-sidebar" class="mini-products-list">
+                    <li class="item even"> <a class="product-image" href="#" title="Downloadable Product "><img alt="Downloadable Product " src="images/products/product-small.jpg" width="80"></a>
+                      <div class="detail-item">
+                        <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
+                          <p class="product-name"> <a href="#" title="Downloadable Product">Downloadable Product </a> </p>
+                        </div>
+                        <div class="product-details-bottom"> <span class="price">$100.00</span> <span class="title-desc">Qty:</span> <strong>1</strong> </div>
+                      </div>
+                    </li>
+                    <li class="item last odd"> <a class="product-image" href="#" title="  Sample Product "><img alt="  Sample Product " src="images/products/product-small.jpg" width="80"></a>
+                      <div class="detail-item">
+                        <div class="product-details"> <a href="#" title="Remove This Item" onClick="" class="glyphicon glyphicon-remove">&nbsp;</a> <a class="glyphicon glyphicon-pencil" title="Edit item" href="#">&nbsp;</a>
+                          <p class="product-name"> <a href="#" title="  Sample Product "> Sample Product </a> </p>
+                        </div>
+                        <div class="product-details-bottom"> <span class="price">$320.00</span> <span class="title-desc">Qty:</span> <strong>2</strong> </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="top-subtotal">Subtotal: <span class="price">$420.00</span></div>
+                  <div class="actions">
+                    <button class="btn-checkout" type="button"><span>Checkout</span></button>
+                    <button class="view-cart" type="button"><span>View Cart</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
+              <input value="" type="hidden">
+              <input id="enable_module" value="1" type="hidden">
+              <input class="effect_to_cart" value="1" type="hidden">
+              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+            </div>
+          </div>
+        </div>
+        <!-- End Top Cart -->
+      </div>
+
+    </div>
+  </header>
+  <!-- end header -->
+    {% include "nav.html" %}
     {% endwith %}
 
-    {% block content %}{% endblock %}
-  </div>
 
-</div><!-- end container -->
+    <div class="{% block content_class %}container{% endblock content_class %}">
 
-{% include "footer.html" %}
+      <div role="main">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="row">
+          <div class="col-md-12">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              <a class="close" title="Close" href="#" data-dismiss="alert">&times;</a>
+             {{message}}
+            </div><!-- end .alert -->
+            {% endfor %}
+          </div><!-- end col-md -->
+        </div><!-- end row -->
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+      </div>
+
+    </div><!-- end container -->
+
+    {% include "footer.html" %}
+
+</div> <!--END Page DIV -->
 
 <!-- JavaScript at the bottom for fast page loading -->
 {% assets "js_all" %}
@@ -67,6 +160,79 @@
 {% block js %}{% endblock %}
 <!-- end scripts -->
 {% endblock %}
+<script type='text/javascript'>
+        jQuery(document).ready(function(){
+            jQuery('#rev_slider_4').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 770,
+                startheight: 460,
+
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+
+                touchenabled: 'on',
+                onHoverStop: 'on',
+
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'off',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'off',
+                forceFullWidth: 'on',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+        });
+        </script>
+
 </body>
 </html>
 

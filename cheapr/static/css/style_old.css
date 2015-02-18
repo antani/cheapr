@@ -1,0 +1,123 @@
+/* =============================================================================
+   App specific CSS file.
+   ========================================================================== */
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.container-narrow{
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* Forms */
+
+.navbar-form input[type="text"],
+.navbar-form input[type="password"] {
+  width: 180px;
+}
+
+
+.form-register {
+  width: 50%;
+}
+
+.form-register .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999999;
+}
+
+footer a {
+  color: #999999;
+}
+
+footer p {
+  float: right;
+  margin-right: 25px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+footer .company {
+  float: left;
+  margin-left: 25px;
+}
+
+footer .footer-nav {
+  float: right;
+  margin-right: 25px;
+  list-style: none;
+}
+.price {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #b12704 !important;
+}
+.buy_td{
+    text-align: center;
+    text-size: 9px;
+}
+.name_td{
+    font-family: Arial,sans-serif;
+    font-size: 17px !important;
+    line-height: 1.255 !important;
+    text-rendering: optimizelegibility;
+}
+.author_td {
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    color: #555 !important;
+}
+.discount_td{
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    color: #b12704 !important;
+}
+.buy_btn
+{
+    background: linear-gradient(to bottom, #f78828 0px, #dd771f 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 70%;
+    display: block;
+    border: 1px solid #da7532;
+    border-radius: 4px;
+    color: #f9f9f9;
+    cursor: pointer;
+    outline: 0 none;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.33);
+}

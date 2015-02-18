@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Best Selling Mobiles and Accessories</h3>
+						<div id="owl-example" class="owl-carousel">
+                            {% for p in best_selling_mobiles %}
+							<!-- Products Slider Item -->
+							<div class="shop-item">
+								<!-- Product Image -->
+								<div class="image">
+									<a href="/mobiles/{{p.title}}"><img src="{{p.img}}" ></a>
+                                    <h4>{{ p.price }}</h4>
+                                    <a href="/mobiles/{{p.title}}">{{p.title}}</a>
+								</div>
+							</div>
+							<!-- End Products Slider Item -->
+                            {%  endfor %}
+						</div>
+                    </div>
+                 </div>
+            </div>
+            <div class="section">
+                <div class="container">
+                    <h3>Top Mobile Brands</h3>
+                    {% for p in brands %}
+                        {% if p.top_brand == 1 %}
+                                {% if loop.index%4 == 0  %}
+                                    <div class="row">
+                                {% endif %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="service-wrapper">
+                                                <img src="{{ p.img }}" alt="Service Name">
+                                                <a href="/mobiles/brand/{{ p.name }}"><p>{{ p.name }}</p></a>
+                                            </div>
+                                        </div>
+                                {% if loop.index%4 == 0  %}
+                                    </div>
+                                {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <h3>All Mobile Brands</h3>
+                    {% for p in brands %}
+                        {% if p.top_brand == 0 %}
+                                {% if loop.index%4 == 0  %}
+                                    <div class="row">
+                                {% endif %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="service-wrapper">
+                                                <img src="{{ p.img }}" alt="Service Name">
+                                                <a href="/mobiles/brand/{{ p.name }}"><p>{{ p.name }}</p></a>
+                                            </div>
+                                        </div>
+                                {% if loop.index%4 == 0  %}
+                                    </div>
+                                {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
+
+{% endblock %}

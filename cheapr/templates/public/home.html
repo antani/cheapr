@@ -20,6 +20,7 @@
           {%if r.usp%}
             <span class="author_td">{{r.usp}}</span><br>
           {%endif%}
+          <a class="link product__link" href="/{{r.type}}/info/{{r.uuid}}"><i class="fa fa-plus-circle"></i>Show More</a>
         </td>
         {% if r.img %}
           <td><img src={{resized_img_src(r.img, width=80, height=100, mode='fit', quality=45, enlarge=True)}} /></td>

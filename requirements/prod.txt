@@ -39,3 +39,13 @@ Flask-DebugToolbar==0.9.1
 #Flask-Resize
 #Flask-Resize
 Flask-Images
+lxml
+cssselect
+requests
+pylibmc
+pyquery
+grequests
+profilehooks
+python-memcached
+memorised
+

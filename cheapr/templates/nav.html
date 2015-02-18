@@ -1,48 +1,286 @@
+<!-- Navbar -->
 
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
+  <nav class="">
+    <div class="container">
+      <div class="nav-inner">
+        <!-- mobile-menu -->
+        <div class="hidden-desktop" id="mobile-menu">
+          <ul class="navmenu">
+            <li>
+              <div class="menutop">
+                <div class="toggle"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></div>
+                <h2>Menu</h2>
+              </div>
+              <ul style="display:none;" class="submenu">
+                <li>
+                  <ul class="topnav">
+                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="#"> <span>Pages</span> </a>
+                      <ul class="level0">
+                        <li class="level1 first"><a href="grid.html"><span>Grid</span></a></li>
+                        <li class="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>
+                        <li class="level1 nav-10-3"> <a href="product-detail.html"> <span>Product Detail</span> </a> </li>
+                        <li class="level1 nav-10-4"> <a href="shopping-cart.html"> <span>Shopping Cart</span> </a> </li>
+                        <li class="level1 first"><a href="checkout.html"><span>Checkout</span></a> </li>
+                        <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Wishlist</span> </a> </li>
+                        <li class="level1"> <a href="dashboard.html"> <span>Dashboard</span> </a> </li>
+                        <li class="level1"> <a href="multiple-addresses.html"> <span>Multiple Addresses</span> </a> </li>
+                        <li class="level1"> <a href="about.html"> <span>About us</span> </a> </li>
+                        <li class="level1"><a href="blog.html"><span>Blog</span></a> </li>
+                        <li class="level1"><a href="contact.html"><span>Contact us</span></a> </li>
+                        <li class="level1"><a href="404error.html"><span>404 Error Page</span></a> </li>
+                      </ul>
+                    </li>
+                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Fashion</span> </a> </li>
+                    <li class="level0 nav-8 level-top parent"> <a class="level-top" href="grid.html"> <span>Women</span> </a> </li>
+                    <li class="level0 nav-10 level-top "> <a class="level-top" href="blog.html"> <span>Blog</span> </a> </li>
+                    <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="contact.html"> <span>Contact</span> </a> </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!--navmenu-->
+        </div>
 
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="{{ url_for('public.home') }}">
-
-      cc
-
-    </a>
-  </div>
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="{{ url_for('public.home') }}">Home</a></li>
-      <li><a href="{{ url_for('public.about') }}">About</a></li>
-    </ul>
-    <form id="searchForm" class="form form-register" method="POST" action="" role="form">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{form.searchterm.label}}
-                {{form.searchterm(class_="form-control")}}
-
-                <select name="searchtype">
-                    <option value="books">Books</option>
-                    <option value="mobiles">Mobiles</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="laptop">Laptops</option>
-                    <option value="computers">Computers and Accessories</option>
-                    <option value="kitchen">Kitchen Appliances</option>
-                    <option value="tv">LED-LCD TVs</option>
-                </select>
+        <!--End mobile-menu -->
+        <ul id="nav" class="hidden-xs">
+          <li id="nav-home" class="level0 parent drop-menu"><a href="index.html"><span>Home</span> </a>
+            <ul class="level1" style="display: none;">
+              <li class="level1 first parent"><a href="index-2.html"><span>Home Version 2</span></a> </li>
+              <li class="level1 parent"><a href="flexslider.html"><span>Flex Slider</span></a> </li>
+              <li class="level1 parent"><a href="nivo-slider.html"><span>Nivo Slider</span></a> </li>
+            </ul>
+          </li>
+          <li class="level0 parent drop-menu"><a href="#"><span>Pages</span> </a>
+            <ul style="display: none;" class="level1">
+              <li class="level1 first"><a href="grid.html"><span>Grid</span></a></li>
+              <li class="level1 nav-10-2"> <a href="list.html"> <span>List</span> </a> </li>
+              <li class="level1 nav-10-3"> <a href="product-detail.html"> <span>Product Detail</span> </a> </li>
+              <li class="level1 nav-10-4"> <a href="shopping-cart.html"> <span>Shopping Cart</span> </a> </li>
+              <li class="level1 first parent"><a href="checkout.html"><span>Checkout</span></a>
+                <ul class="level2">
+                  <li class="level2 nav-2-1-1 first"><a href="checkout-method.html"><span>Checkout Method</span></a></li>
+                  <li class="level2 nav-2-1-5 last"><a href="checkout-billing-info.html"><span>Checkout Billing Info</span></a></li>
+                </ul>
+              </li>
+              <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Wishlist</span> </a> </li>
+              <li class="level1"> <a href="dashboard.html"> <span>Dashboard</span> </a> </li>
+              <li class="level1"> <a href="multiple-addresses.html"> <span>Multiple Addresses</span> </a> </li>
+              <li class="level1"> <a href="about.html"> <span>About us</span> </a> </li>
+              <li class="level1 first parent"><a href="blog.html"><span>Blog</span></a>
+                <ul class="level2">
+                  <li class="level2 nav-2-1-1 first"><a href="blog-detail.html"><span>Blog Detail</span></a></li>
+                </ul>
+              </li>
+              <li class="level1"><a href="contact.html"><span>Contact us</span></a> </li>
+              <li class="level1"><a href="404error.html"><span>404 Error Page</span></a> </li>
+            </ul>
+          </li>
+          <li class="level0 nav-6 level-top parent"> <a href="grid.html" class="level-top"> <span>Fashion</span> </a>
+            <div class="level0-wrapper dropdown-6col">
+              <div class="level0-wrapper2">
+                <div class="nav-block nav-block-center grid12-8 itemgrid itemgrid-4col">
+                  <ul class="level0">
+                    <li class="level1 nav-7-1 first parent item"> <a href="#"> <span>Women</span> </a>
+                      <ul class="level1">
+                        <li><a href="#">Skirts</a></li>
+                        <li><a href="#">Shorts</a></li>
+                        <li><a href="#">Premium Pants</a></li>
+                        <li><a href="#">Khakis</a></li>
+                        <li><a href="#">Casual Pants</a></li>
+                      </ul>
+                    </li>
+                    <li class="level1 nav-7-3 parent item"> <a href="#"> <span>Men</span> </a>
+                      <ul class="level1">
+                        <li><a href="#">Casual Dresses</a></li>
+                        <li><a href="#">Sunglasses</a></li>
+                        <li><a href="#">Sport Shoes</a></li>
+                        <li><a href="#">Jeans</a></li>
+                        <li><a href="#">Watches</a></li>
+                      </ul>
+                    </li>
+                    <li class="level1 nav-7-4 parent item"> <a href="#"> <span>Girls</span> </a>
+                      <ul class="level1">
+                        <li class="level2 nav-2-1-1 first"><a href="#"><span>Shirts</span></a></li>
+                        <li class="level2 nav-2-1-2"><a href="#"><span>T-shirts</span></a></li>
+                        <li class="level2 nav-2-1-3"><a href="#"><span>Suits</span></a></li>
+                        <li class="level2 nav-2-1-4"><a href="#"><span>Blazers</span></a></li>
+                        <li class="level2 nav-2-1-5 last"><a href="#"><span>Trousers</span></a></li>
+                      </ul>
+                    </li>
+                    <li class="level1 nav-7-4 last parent item"> <a href="#"> <span>Boys</span> </a>
+                      <ul class="level1">
+                        <li class="level2 first"><a href="#"><span>Dresses</span></a></li>
+                        <li class="level2 nav-1-1-2"><a href="#"><span>Jumpsuits</span></a></li>
+                        <li class="level2 nav-1-1-3"><a href="#"><span>Shirts &amp; Tops</span></a></li>
+                        <li class="level2 nav-1-1-4"><a href="#"><span>Shorts &amp; Skirts</span></a></li>
+                        <li class="level2 nav-1-1-5 last"><a href="#"><span>Sleepwear</span></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="fur-des">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa.</p>
+                  </div>
+                </div>
+                <div class="nav-block nav-block-right std grid12-4">
+                  <div class="static-img-block"><a href="#"><img src="images/nav-img1.jpg" alt="Responsive"></a></div>
+                  <h3 class="heading">Responsive Magento Theme</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor.</p>
+                  <a title="Shop collection now" href="#" class="btn-button-st">Shop collection now</a> </div>
+              </div>
             </div>
-
-            <p><input class="btn btn-default btn-submit" type="submit" value="Search"></p>
-    </form>
-
-  </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
-
+          </li>
+          <li class="level0 nav-5 level-top first"> <a class="level-top" href="grid.html"> <span>Women</span> </a>
+            <div style="display: none; left: 0px;" class="level0-wrapper dropdown-6col">
+              <div class="level0-wrapper2">
+                <div class="nav-block nav-block-center">
+                  <ul class="level0">
+                    <li class="level1 nav-6-1 parent item"> <a href="#"><span>Styliest Bag</span></a>
+                      <!--sub sub category-->
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"> <a href="#/clutch-handbags.html"><span>Clutch Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/diaper-bags.html"><span>Diaper Bags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/bags.html"><span>Bags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/hobo-handbags.html"><span>Hobo Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                      </ul>
+                      <!--level1-->
+                      <!--sub sub category-->
+                    </li>
+                    <!--level1 nav-6-1 parent item-->
+                    <li class="level1 nav-6-1 parent item"> <a href="#/material-bag.html"><span>Material Bag</span></a>
+                      <!--sub sub category-->
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"> <a href="#/beaded-handbags.html"><span>Beaded Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/fabric-handbags.html"><span>Fabric Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/handbags.html"><span>Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/leather-handbags.html"><span>Leather Handbags</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                      </ul>
+                      <!--level1-->
+                      <!--sub sub category-->
+                    </li>
+                    <!--level1 nav-6-1 parent item-->
+                    <li class="level1 nav-6-1 parent item"> <a href="#/shoes.html"><span>Shoes</span></a>
+                      <!--sub sub category-->
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"> <a href="#/shoes/flat-shoes.html"><span>Flat Shoes</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/shoes/flat-sandals.html"><span>Flat Sandals</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/shoes/boots.html"><span>Boots</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/shoes/heels.html"><span>Heels</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                      </ul>
+                      <!--level1-->
+                      <!--sub sub category-->
+                    </li>
+                    <!--level1 nav-6-1 parent item-->
+                    <li class="level1 nav-6-1 parent item"> <a href="#/jwellery.html"><span>Jwellery</span></a>
+                      <!--sub sub category-->
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"> <a href="#/jwellery/bracelets.html"><span>Bracelets</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/jwellery/necklaces-pendants.html"><span>Necklaces &amp; Pendants</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/jwellery/pendants.html"><span>Pendants</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/jwellery/pins-brooches.html"><span>Pins &amp; Brooches</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                      </ul>
+                      <!--level1-->
+                      <!--sub sub category-->
+                    </li>
+                    <!--level1 nav-6-1 parent item-->
+                    <li class="level1 nav-6-1 parent item"> <a href="#/swimwear.html"><span>Swimwear</span></a>
+                      <!--sub sub category-->
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"> <a href="#/swimwear/swimsuits.html"><span>Swimsuits</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/swimwear/beach-clothing.html"><span>Beach Clothing</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/swimwear/clothing.html"><span>Clothing</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                        <li class="level2 nav-6-1-1"> <a href="#/swimwear/bikinis.html"><span>Bikinis</span></a> </li>
+                        <!--level2 nav-6-1-1-->
+                      </ul>
+                      <!--level1-->
+                      <!--sub sub category-->
+                    </li>
+                    <!--level1 nav-6-1 parent item-->
+                  </ul>
+                  <!--level0-->
+                </div>
+              </div>
+              <div class="nav-add">
+                <div class="push_item">
+                  <div class="push_img"> <a href="#"> <img  alt="women_jwellery" src="images/women_jwellery.png"> </a> </div>
+                </div>
+                <div class="push_item push_item_last">
+                  <div class="push_img"> <a href="#"> <img  alt="women_bag" src="images/women_bag.png"> </a> </div>
+                </div>
+                <br class="clear">
+              </div>
+            </div>
+          </li>
+          <li class="level0 parent drop-menu"><a href="grid.html"><span>Sub menu </span>
+            <!--<span class="category-label-hot">Hot</span> -->
+            </a>
+            <ul style="display: none;" class="level1">
+              <li class="level1 first parent"><a href="#"><span>Submenu</span></a>
+                <ul class="level2">
+                  <li class="level2 first"><a href="#"><span>Menu1</span></a></li>
+                  <li class="level2 nav-1-1-2"><a href="#"><span>Menu1</span></a></li>
+                  <li class="level2 nav-1-1-3"><a href="#"><span>Menu2</span></a></li>
+                  <li class="level2 nav-1-1-4"><a href="#"><span>Menu3</span></a></li>
+                  <li class="level2 nav-1-1-5 last"><a href="#"><span>Menu4</span></a></li>
+                </ul>
+              </li>
+              <li class="level1 first parent"><a href="#"><span>Submenu</span></a>
+                <ul class="level2">
+                  <li class="level2 first"><a href="#"><span>Menu1</span></a></li>
+                  <li class="level2 nav-1-1-2"><a href="#"><span>Menu1</span></a></li>
+                  <li class="level2 nav-1-1-3"><a href="#"><span>Menu2</span></a></li>
+                  <li class="level2 nav-1-1-4"><a href="#"><span>Menu3</span></a></li>
+                  <li class="level2 nav-1-1-5 last"><a href="#"><span>Menu4</span></a></li>
+                </ul>
+              </li>
+              <li class="level1 parent"><a href="#"><span>Submenu</span></a> </li>
+            </ul>
+          </li>
+          <li class="level0 nav-8 level-top"> <a href="blog.html" class="level-top"> <span>Blog</span> </a> </li>
+          <li class="level0 nav-8 level-top"> <a href="contact.html" class="level-top"> <span>Contact</span> </a> </li>
+          <li class="nav-custom-link level0 level-top parent"> <a class="level-top" href="#"><span>Custom</span></a>
+            <div class="level0-wrapper custom-menu" style="left: 0px; display: none;">
+              <div class="header-nav-dropdown-wrapper clearer">
+                <div class="grid12-5">
+                  <div class="custom_img"><a href="#"><img src="images/custom-img.jpg" alt="custom img1"></a></div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                </div>
+                <div class="grid12-5">
+                  <div class="custom_img"><a href="#"><img src="images/custom-img.jpg" alt="custom img2"></a></div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                </div>
+                <div class="grid12-5">
+                  <div class="custom_img"><a href="#"><img src="images/custom-img.jpg" alt="custom img3"></a></div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                </div>
+                <div class="grid12-5">
+                  <div class="custom_img"><a href="#"><img src="images/custom-img.jpg" alt="custom img4"></a></div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end nav -->
