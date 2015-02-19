@@ -78,23 +78,23 @@
                     <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> <span class="currencyINR">&#8377;</span>{{r.price}} </span> </p>
                   </div>
                   <div class="desc std">
-                    <p>{{r.discount}}</p>
-                    <p>{{r.author}}</p>
-                    <p>{{r.usp}}... <a class="link-learn" title="" href="/{{r.type}}/info/{{r.uuid}}">Learn More</a> </p>
+
+                    {% if r.discount %}
+                        <p>{{r.discount}}</p>
+                    {% endif %}
+                    {% if r.author %}
+                        <p>{{r.author}}</p>
+                    {% endif %}
+                    {% if r.usp %}
+                        <p>{{r.usp}}</p>
+                    {% endif %}
+                    <a class="link-learn" title="" href="/{{r.type}}/info/{{r.uuid}}">Learn More</a>
                   </div>
                     <div class="">
-                    <button class="button btn-cart" type="button" title="Buy">
-                        <a href="{{r.url}}">
-                        <span>
-                        <i class="icon-basket"></i>
-                        Add to Cart
-                        </span></a>
-                    </button>
+                    <a href="{{r.url}}" class="button btn-cart" type="button" title="Buy">Buy</a>
                     </div>
-
                     <span class="author_td"> from </span><img src={{resized_img_src(r.source, width=80, height=50, mode='fit', quality=45)}} />
-
-
+                  </div>
               </li>
              {%endfor%}
             </ol>
@@ -105,5 +105,6 @@
   </section>
   <!-- End Two columns content -->
 {% endblock %}
+
 
 

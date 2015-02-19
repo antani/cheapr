@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+
+     <section class="container">
+			<div class="product product--single">
+						<div class="row">
+							<div class="col-sm-4">
+
+                                <!-- Preview slider main area -->
+								<div id="slideshow"  class="slideshow slidershow-large">
+                                    <img class="resizeme-180" src="{{amazon_book_details.book_img}}" alt="Item Name">
+								</div>
+
+
+							</div><!-- end col -->
+
+                            <div class="col-sm-8">
+								<div class="product__decribe product__decribe--full">
+									<h3 class="product__title">{{amazon_book_details.book_title}}</h3>
+                                    <p>{{ amazon_book_details.book_author }}</p>
+                                    </br>
+									<p class="product__info ellipsis">{{ amazon_book_details.book_small_description | striptags }}</p>
+									<span class="product__price">₹ {{blob.price|e}}</span>
+                                    </br>
+                                    <a class="btn btn-warning btn--decorated product__btn" href="{{ blob.url|e }}">Buy Now</a>
+                                    <p>From</p>
+                                    <img src="{{'/static/images/'+blob.source+'.png'}}"/>
+
+								</div>
+							</div><!-- end col -->
+						</div><!-- end row -->
+					</div>
+
+						<div class="tabs tabs--minimal devider--middle">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs">
+							  <li class="active"><a href="#one" data-toggle="tab">Description</a></li>
+							  <li><a href="#two" data-toggle="tab">Features</a></li>
+							  <li><a href="#three" data-toggle="tab" id="review">Reviews(From Amazon.com)</a></li>
+							</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							  <div class="tab-pane active ellipsis" id="book-description-dots">
+                                  <p>{{ amazon_book_details.book_description | striptags}}</p>
+							 </div>
+							  <div class="tab-pane" id="two">
+							 	<!-- Vertical oriented table -->
+								<table class="table table--vertical table--space">
+					              	<colgroup class="col-width-one">
+					              	<colgroup class="col-width-two">
+
+						            <tr>
+						                  <td class="vertical-heading">Resolution</td>
+						                  <td>1920 x 1080</td>
+						            </tr>
+						            <tr>
+						                  <td class="vertical-heading">Energy efficiency rating</td>
+						                  <td>A+</td>
+						            </tr>
+						            <tr>
+						                  <td class="vertical-heading">On-mode power consumption</td>
+						                  <td>115 W</td>
+						            </tr>
+						            <tr>
+						                  <td class="vertical-heading">Annual power consumption</td>
+						                  <td>160 kWh</td>
+						            </tr>
+						            <tr>
+						                  <td class="vertical-heading">Screen technology</td>
+						                  <td>LED backlit</td>
+						            </tr>
+				           		</table>
+							  </div>
+							  <div class="tab-pane" id="three">
+
+                                        <iframe style="position: relative; width:100%; height: 100%;"  src="{{ amazon_book_details.book_customer_reviews }}"  scrolling="auto" frameborder=0>
+                                            <p>Your browser does not support iframes.</p>
+                                        </iframe>
+
+							  </div>
+							</div>
+						</div><!-- end tabs -->
+
+						<h2 class="block-title block-title--top-large-s block-title--bottom">Similar Products</h2>
+						<div class="row product-wrapper">
+                            {%  for amz in amazon %}
+							    <div class="col-sm-6 col-md-3">
+								<!-- Product preview -->
+								<div class="product product--round product--flow">
+									<div class="product__photo">
+										<img src="{{ amz.img }}" alt="">
+									</div>
+                                    </br>
+									<span class="product__title"><a href="/books/{{ amz.url }}">{{ amz.url }}</a></span>
+
+								</div>
+								<!-- end product preview -->
+							</div><!-- end col -->
+                            {% endfor %}
+
+
+							</div><!-- end row -->
+		</section><!-- end container -->
+
+
+{% endblock %}

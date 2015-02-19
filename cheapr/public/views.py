@@ -16,6 +16,7 @@ import datetime
 from flask import request
 import cheapr.mobiles.models
 import json
+import cheapr.books.models
 
 LOG_FILENAME = 'cheapr_access_log.log'
 info_log = logging.getLogger('app_info_log')
@@ -113,6 +114,34 @@ def get_mobile_info(uuid=None):
         json_blob=[]
 
     return render_template('public/mobiles_info.html', blob=json_blob,spec=specs, form=form)
+
+@blueprint.route('/books/info/<uuid>', methods = ['GET'])
+def get_books_info(uuid=None):
+    form = SearchForm(request.form)
+    blob=requests.get('http://localhost:5001/api/1.0/{0}'.format(uuid))
+    if blob:
+        json_blob=json.loads(blob.content)
+        title=json_blob['name']
+        #b=cheapr.books.models.GoodReads()
+        #goodreads=b.get_goodreads_info(json_blob['name'])
+        if title:
+            amz=cheapr.books.models.Amazon()
+            isbn = amz.amazon_query_isbn(title)
+            print uuid,title,isbn
+            amazon=amz.amazon_similar_items(isbn)
+            amazon_book_details = amazon[0]
+        else:
+            amazon=amazon_book_details=[]
+    else:
+        json_blob=[]
+        amazon=[]
+        amazon_book_details=[]
+        goodreads=[]
+
+    return render_template('public/books_info.html',
+                           blob=json_blob, goodreads=[],amazon=amazon[1:],
+                           amazon_book_details=amazon_book_details,
+                           form=form)
 #-----------------------------------------------------------------------------------------------------------------------
 
 @blueprint.route("/about/")

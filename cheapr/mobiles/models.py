@@ -6,6 +6,7 @@ import requests
 from memorised.decorators import memorise
 from bs4 import BeautifulSoup
 import json
+
 class MobileBrand(Model):
     __tablename__ = 'mobile_brands'
     id=db.Column(db.Integer,primary_key=True)
